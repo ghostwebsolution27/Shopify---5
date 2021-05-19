@@ -1,0 +1,900 @@
+{
+  "current": {
+    "color_text": "#000000",
+    "color_body_text": "#000000",
+    "color_button": "#000000",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#ffffff",
+    "color_text_field_text": "#ffffff",
+    "color_text_field_border": "#5b4c4c",
+    "color_text_field": "#000000",
+    "color_body_bg": "#ffffff",
+    "social_facebook_link": "https:\/\/www.facebook.com\/ownbosssupplyco\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/ownbosssupplyco\/",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCURclP1vjFcyyyIlS0TFEvg",
+    "favicon": "shopify:\/\/shop_images\/logo_without_words_09a77cdf-ee0f-4f76-b80b-c4462a16c2a6.jpg",
+    "show_entry": false,
+    "multiplier": "10",
+    "entry_bg_color": "#000000",
+    "checkout_logo_image": "shopify:\/\/shop_images\/ownboss_logo.png",
+    "checkout_logo_position": "center",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "center",
+          "logo": "shopify:\/\/shop_images\/ownboss_logo.png",
+          "logo_max_width": 200,
+          "main_linklist": "sidebar-menu",
+          "message": true,
+          "home_page_only": true,
+          "message_text": "Free Shipping On Orders Over $99",
+          "color_bg": "#efeeee",
+          "color_text": "#000000"
+        }
+      },
+      "hero-1": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/10X_2.png",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "x-large",
+          "text_size": "large",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": "shopify:\/\/collections"
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "layout": "left",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": ""
+        }
+      },
+      "feature-columns": {
+        "type": "feature-columns",
+        "blocks": {
+          "feature-columns-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": ""
+            }
+          },
+          "feature-columns-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": ""
+            }
+          },
+          "feature-columns-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "feature-columns-0",
+          "feature-columns-1",
+          "feature-columns-2"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left"
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "settings": {
+          "title": "- Best selling -",
+          "collection": "home-page",
+          "grid": 4,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "quotes": {
+        "type": "quotes",
+        "blocks": {
+          "quotes-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name"
+            }
+          },
+          "quotes-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name"
+            }
+          },
+          "quotes-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name"
+            }
+          }
+        },
+        "block_order": [
+          "quotes-0",
+          "quotes-1",
+          "quotes-2"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "image-bar": {
+        "type": "image-bar",
+        "blocks": {
+          "image-bar-0": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "cta_label": ""
+            }
+          },
+          "image-bar-1": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "cta_label": ""
+            }
+          },
+          "image-bar-2": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "image-bar-0",
+          "image-bar-1",
+          "image-bar-2"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "title": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-1": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Newsletter"
+            }
+          },
+          "cd986d70-f076-41a5-b9b8-ed80214aebf5": {
+            "type": "text",
+            "settings": {
+              "title": "",
+              "text": "<p><strong>*OB3 GIVEAWAY. <\/strong><\/p><p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN<\/strong>. Open to residents of the 48 contiguous United States, the District of Columbia andCanada (excluding AK, HI and Quebec), who are age of majority &amp; licenseddrivers.  Void in AK, HI, Quebec and where prohibited. Begins <strong>4\/24\/2021<\/strong>and ends 11:59:59 PM ET on <strong>7\/18\/2021<\/strong>. Skill-testing question required ifCanadian-selected entrant.  Total value of Grand prize is $70,000 USD.Odds of winning depend upon the number of eligible entries received.  See <span style=\"text-decoration:underline\">Official Rules<\/span> [MEP1] for complete details. Sponsor:  Own Boss Supply LLC, 28265 BeckRoad, Unit C15, Wixom, Michigan 48393.<\/p><p> [MEP1]Thisshould hyperlink to your Rules page<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1",
+          "cd986d70-f076-41a5-b9b8-ed80214aebf5"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#dfdfdf",
+          "color_footer_text": "#333232",
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "161556657515b28ddf": {
+        "type": "instafeed",
+        "settings": {
+          "heading_font": "helvetica_n4",
+          "heading_size": 20,
+          "feed_width": 100,
+          "html_area": ""
+        }
+      },
+      "161653394934cb709b": {
+        "type": "quotes",
+        "blocks": {
+          "161653394934cb709b-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Got some detailing products for my Duramax, and they working amazing. <\/p>",
+              "author": "Zane T."
+            }
+          },
+          "161653394934cb709b-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Bought a shirt for myself and my girl, they are really nice and soft. Got my entries and I couldn&#x27;t be happier with my purchase.<\/p>",
+              "author": "Joshua A."
+            }
+          },
+          "161653394934cb709b-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>This is an amazing idea I love that they are giving away opportunity. While selling quality products. <\/p>",
+              "author": "Dustin P."
+            }
+          }
+        },
+        "block_order": [
+          "161653394934cb709b-0",
+          "161653394934cb709b-1",
+          "161653394934cb709b-2"
+        ],
+        "settings": {
+          "title": "Testimonials"
+        }
+      },
+      "1616533997fc350ddc": {
+        "type": "collection",
+        "settings": {
+          "title": "- hoodies -",
+          "collection": "men-s-hoodie-s",
+          "grid": 3,
+          "rows": 3,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "16165890988492b216": {
+        "type": "video",
+        "settings": {
+          "image_position": "center center",
+          "video_link": "https:\/\/www.youtube.com\/watch?v=VC2dnJz1Igw",
+          "show_overlay": false,
+          "style": "background",
+          "height": "medium",
+          "video_title": "",
+          "text_size": "large"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 4,
+          "rows": 8,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": true,
+          "media_size": "medium",
+          "enable_image_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like",
+          "show_vendor": false
+        }
+      },
+      "1616607966ae3a5bac": {
+        "type": "collection",
+        "settings": {
+          "title": "- Tee Shirts -",
+          "collection": "men-s-tee-s",
+          "grid": 4,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "1616608127acb92e5c": {
+        "type": "collection",
+        "settings": {
+          "title": "- Detailing Products -",
+          "collection": "detailing",
+          "grid": 4,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "1616704679dd8db896": {
+        "type": "collection",
+        "settings": {
+          "title": "- Gear -",
+          "collection": "accessories",
+          "grid": 3,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "16167047494c31f362": {
+        "type": "collection",
+        "settings": {
+          "title": "- Hats -",
+          "collection": "headwear",
+          "grid": 3,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "nav-drawer": {
+        "type": "nav-drawer",
+        "settings": {
+          "navdrawer_logo": "shopify:\/\/shop_images\/ownboss_logo.png",
+          "navdrawer_logo_width": 160,
+          "navdrawer_linklist": "sidebar-menu",
+          "menu_general_color": "#000000",
+          "menu_color": "#000000",
+          "menu_hover_color": "#ffab00",
+          "menu_active_color": "#ffab00",
+          "search_color": "#000000"
+        }
+      },
+      "16177358445b2a6a68": {
+        "type": "quick-faq",
+        "blocks": {
+          "bae3870d-8cef-464c-844d-4cb16eb212f3": {
+            "type": "faq",
+            "settings": {
+              "faq_title": "How long does it take to get my order completed?",
+              "faq_content": "<p><em>Due to high volume of orders it currently takes 5-9 days to complete an order. Please be patient with us as we are striving to work faster for our customers! <\/em><\/p>"
+            }
+          },
+          "a9ed0264-1252-4998-9025-b36eb599c5d3": {
+            "type": "faq",
+            "settings": {
+              "faq_title": "I picked the wrong size for the order I just confirmed, what do i do?",
+              "faq_content": "<p><em>If you accidentally picked the wrong size, don’t worry! Immediately email us at <\/em><a href=\"mailto:customerservice@ownbosssupplyco.com\"><em>customerservice@ownbosssupplyco.com<\/em><\/a><em> with your name and order number and we will get it fixed out before it ships! <\/em><\/p>"
+            }
+          },
+          "cdbe5a53-0e07-463e-a11a-2b0f03cd4878": {
+            "type": "faq",
+            "settings": {
+              "faq_title": "I accidentally put the wrong address for my order, what do I do?",
+              "faq_content": "<p><em>If you have accidentally put the wrong address or mispelled the address dont stress, email us immediately at <\/em><a href=\"mailto:customerservice@ownbosssupplyco.com\"><em>customerservice@ownbosssupplyco.com<\/em><\/a><em> with the order number and the correct address information!<\/em><\/p>"
+            }
+          },
+          "4b829c8b-776e-4a80-8b71-9b227cce03b3": {
+            "type": "faq",
+            "settings": {
+              "faq_title": "My order is being shipped back to Own Boss Supply Co, what happened ?",
+              "faq_content": "<p><em>Sometimes deliveries are returned or delayed because of wrong imputed information from the purchaser (you) – email us at <\/em><a href=\"mailto:customerservice@ownbosssupplyco.com\"><em>customerservice@ownbosssupplyco.com<\/em><\/a><em> and we will figure everything out for you!<\/em><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "bae3870d-8cef-464c-844d-4cb16eb212f3",
+          "a9ed0264-1252-4998-9025-b36eb599c5d3",
+          "cdbe5a53-0e07-463e-a11a-2b0f03cd4878",
+          "4b829c8b-776e-4a80-8b71-9b227cce03b3"
+        ],
+        "settings": {
+          "image": "shopify:\/\/shop_images\/ob3_pic_resized.jpg",
+          "title": "F.A.Q. Own Boss",
+          "sub_title": "Get You Help Support",
+          "btn_link": "shopify:\/\/pages\/frequently-asked-questions",
+          "btn_text": "READ ALL FAQS",
+          "bg_color": "#000000",
+          "text_color": "#ffffff",
+          "faq_title_color": "#ffffff",
+          "faq_content_color": "#000000",
+          "btn_text_color": "#000000",
+          "btn_text_hover_color": "#ffffff",
+          "btn_bg_color": "#ffab00",
+          "btn_bg_hover_color": "#ffab00",
+          "btn_border_color": "#ffffff",
+          "btn_border_hover_color": "#000000",
+          "btn_border_size": 1
+        }
+      },
+      "161788635598880dcb": {
+        "type": "featured-row",
+        "settings": {
+          "image1": "shopify:\/\/shop_images\/ob3_machine_resized.jpg",
+          "image2": "shopify:\/\/shop_images\/1500x5002-2048x1386.png",
+          "image3": "shopify:\/\/shop_images\/CM200_2019_Logo_white2-2048x1386.png",
+          "text1": "Every $ Spent",
+          "text2": "10 ENTRIES",
+          "text_over_img": "BE\nYOUR\nOWN\nBOSS",
+          "title2": "100% Legal Giveaway",
+          "description": "We use one of the best Sweepstakes Agencies in the country. The winner will be chosen randomly through our legally registered Sweepstakes Agency (Marden-Kane). All entries are sent to our agency immediately upon purchase where they are registered and bonded to legally give our setup away to one lucky winner.",
+          "background_color": "#000000",
+          "text_color": "#ffab00",
+          "second_text_color": "#ffffff"
+        }
+      },
+      "161790974932ffd926": {
+        "type": "time-countdown",
+        "settings": {
+          "title": "OB3 Starting In",
+          "datetime": "4\/23\/2021",
+          "background_color": "#000000",
+          "text_color": "#dd3333",
+          "time_color": "#ffffff"
+        }
+      },
+      "1617945984b8d8fc0f": {
+        "type": "usp",
+        "blocks": {
+          "74d1d156-8398-44d6-91d9-3401e93e3e4d": {
+            "type": "proposition",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Asset_1.png",
+              "title": "PICK YOUR PRODUCTS",
+              "description": "Entries are earned based on the price of the products you choose."
+            }
+          },
+          "b8f193c1-2d49-447c-9073-eb711135c1ae": {
+            "type": "proposition",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Asset_1_6e7b65f8-4d10-447e-aec0-a571964b7a57.png",
+              "title": "CHECK OUT",
+              "description": "Your entries are totaled at checkout."
+            }
+          },
+          "58d96f5b-d6fc-4b22-8bb7-6b18831c1ae1": {
+            "type": "proposition",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Asset_1_6a8099f3-60ea-4d5f-9b6b-b2fa3520527b.png",
+              "title": "ENTRIES SUBMITTED",
+              "description": "Your entries are immediately submitted once you complete your order!"
+            }
+          }
+        },
+        "block_order": [
+          "74d1d156-8398-44d6-91d9-3401e93e3e4d",
+          "b8f193c1-2d49-447c-9073-eb711135c1ae",
+          "58d96f5b-d6fc-4b22-8bb7-6b18831c1ae1"
+        ],
+        "settings": {
+          "background_color": "#000000",
+          "text_color": "#ffffff"
+        }
+      }
+    },
+    "content_for_index": [
+      "hero-1",
+      "1617945984b8d8fc0f",
+      "161790974932ffd926",
+      "collection",
+      "161653394934cb709b",
+      "1616533997fc350ddc",
+      "161556657515b28ddf",
+      "161788635598880dcb",
+      "1616704679dd8db896",
+      "16165890988492b216",
+      "1616607966ae3a5bac",
+      "1616608127acb92e5c",
+      "16167047494c31f362",
+      "16177358445b2a6a68"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero-1": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "blocks": {
+            "feature-columns-0": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-1": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-2": {
+              "type": "text_block",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "grid": 4
+          }
+        },
+        "hero-2": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "quotes": {
+          "type": "quotes",
+          "blocks": {
+            "quotes-0": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-1": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-2": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1"
+          ],
+          "settings": {
+            "show_payment_icons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "color_footer_bg": "#f8f8f8",
+            "color_footer_text": "#6d6d6d"
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

@@ -1,0 +1,215 @@
+<div data-section-id="{{ section.id }}" data-section-type="quick-faq-section">
+  <div class="quick-faq">
+    <div class="quick-faq-inner">
+      {% comment %} Left Image {% endcomment %}
+      <div class="left-image-wrapper">
+        {%- if section.settings.image != blank -%}
+          {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+          <img class="quick-faq-image lazyload lazypreload"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+              data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+              data-sizes="auto"
+              alt="{{ section.settings.image.alt | escape }}">
+        {%- else -%}
+          <span>
+            {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+            {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+          </span>
+        {%- endif -%}
+        <noscript>
+          <div class=""{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}');"{% endif %}></div>
+        </noscript>
+      </div>
+      {% comment %} Left Image {% endcomment %}
+
+      {% comment %} Right part {% endcomment %}
+      <div class="faq-list-wrapper">
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+        <p class="section-description">{{ section.settings.sub_title }}</p>
+
+        <div class="faq-list">
+          {% if section.blocks.size > 0 %}
+            {% for faq in section.blocks %}
+              <div class="faq">
+                <div class="faq-title">
+                  <h4>{{ faq.settings.faq_title }}</h4>
+                </div>
+                <div class="faq-content">
+                  <article>{{ faq.settings.faq_content }}</article>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <div class="read-faq-wrapper">
+          <a href="{{ section.settings.btn_link }}" class="read-all-faqs">{{ section.settings.btn_text }}</a>
+        </div>
+      </div>
+      {% comment %} Right part {% endcomment %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .quick-faq .quick-faq-inner {
+    background-color: {{ section.settings.bg_color }};
+  }
+  .quick-faq .section-title,
+  .quick-faq .section-description {
+    color: {{ section.settings.text_color }};
+  }
+  .quick-faq .faq-title {
+    color: {{ section.settings.faq_title_color }};
+  }
+  .quick-faq .faq-title:after {
+    color: {{ section.settings.faq_title_color }};
+  }
+  .quick-faq .faq-content {
+    color: {{ section.settings.faq_content_color }};
+  }
+  .quick-faq .read-all-faqs {
+    color: {{ section.settings.btn_text_color }};
+    background-color: {{ section.settings.btn_bg_color }};
+    border: {{ section.settings.btn_border_size }}px solid {{ section.settings.btn_border_color }};
+  }
+  .quick-faq .read-all-faqs:hover {
+    color: {{ section.settings.btn_text_hover_color }};
+    background-color: {{ section.settings.btn_bg_hover_color }};
+    border-color: {{ section.settings.btn_border_hover_color }};
+  }
+</style>
+
+
+{% schema %}
+{
+  "name": "Quick FAQ",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_title",
+      "label": "Description"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "faq_title_color",
+      "label": "FAQ Title Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "faq_content_color",
+      "label": "FAQ Content Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_hover_color",
+      "label": "Button Text Hover Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button Background Color",
+      "default": "#19b89d"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_hover_color",
+      "label": "Button Background Hover Color",
+      "default": "#19b89d"
+    },
+    {
+      "type": "color",
+      "id": "btn_border_color",
+      "label": "Button Border Color",
+      "default": "#008778"
+    },
+    {
+      "type": "color",
+      "id": "btn_border_hover_color",
+      "label": "Button Border Hover Color",
+      "default": "#000"
+    },
+    {
+      "type": "range",
+      "id": "btn_border_size",
+      "label": "Border Size",
+      "unit": "px",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "faq_title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "faq_content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quick FAQ",
+      "category": "faq"
+    }
+  ]
+}
+{% endschema %}

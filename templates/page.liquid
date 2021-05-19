@@ -1,0 +1,21 @@
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="rte">
+        {{ page.content }}
+      </div>
+    </div>
+  </div>
+</div>
+
+ {% if page.metafields.c_f.banner_url %}
+    <img src="{{ page.metafields.c_f.banner_url }}" alt="{{ page.title }}" class="page-banner"/>
+    {% endif %}
+
+<style>
+.page-banner img {max-width:100%; width: 100%; height:auto;}
+</style>

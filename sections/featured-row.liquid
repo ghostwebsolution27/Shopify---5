@@ -1,0 +1,163 @@
+{%- style -%}
+.featured-row {
+  background-color: {{ section.settings.background_color }};
+}
+.featured-row .take-entry {
+  color: {{ section.settings.text_color }};
+}
+.featured-row .entry-to-win {
+  background-image: url('{{ section.settings.image1 | img_url: 'master' }}');
+}
+.featured-row .take-entry .text-over-image {
+  background-color: {{ section.settings.background_color }};
+}
+.featured-row .legal-giveaway {
+  color: {{ section.settings.second_text_color }};
+}
+{%- endstyle -%}
+
+<div data-section-id="{{ section.id }}" data-section-type="featured-row-section" class="featured-row">
+  <div class="featured-row-wrapper">
+    <div class="take-entry">
+      <div class="entry-to-win">
+        <div class="text-over-image">
+          {{ section.settings.text_over_img }}
+        </div>
+      </div>
+      
+      <div class="right-text">
+        <h1 class="title">
+          {{ section.settings.text1 }}
+          <span>=</span>
+          {{ section.settings.text2 }}
+        </h1>
+      </div>
+    </div>
+
+    <div class="legal-giveaway">
+      <div class="left-image">
+        {%- if section.settings.image2 != blank -%}
+          {%- assign img_url = section.settings.image2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+          <img class="quick-faq-image lazyload lazypreload"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+              data-aspectratio="{{ section.settings.image2.aspect_ratio }}"
+              data-sizes="auto"
+              alt="{{ section.settings.image2.alt | escape }}">
+        {%- else -%}
+          <span>
+            {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+            {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+          </span>
+        {%- endif -%}
+        <noscript>
+          <div class=""{% if section.settings.image2 %}{% unless section.settings.image2.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image2 | img_url: '2048x' }}');"{% endif %}></div>
+        </noscript>
+      </div>
+
+      <div class="content">
+        <h2 class="title2">{{ section.settings.title2 }}</h2>
+        <div class="description">{{ section.settings.description }}</div>
+      </div>
+
+      <div class="right-image">
+        {%- if section.settings.image3 != blank -%}
+          {%- assign img_url = section.settings.image3 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+          <img class="quick-faq-image lazyload lazypreload"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+              data-aspectratio="{{ section.settings.image3.aspect_ratio }}"
+              data-sizes="auto"
+              alt="{{ section.settings.image3.alt | escape }}">
+        {%- else -%}
+          <span>
+            {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+            {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+          </span>
+        {%- endif -%}
+        <noscript>
+          <div class=""{% if section.settings.image3 %}{% unless section.settings.image3.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}');"{% endif %}></div>
+        </noscript>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Text with Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "Right Image"
+    },
+    {
+      "type": "text",
+      "id": "text1",
+      "label": "Text 1"
+    },
+    {
+      "type": "text",
+      "id": "text2",
+      "label": "Text 2"
+    },
+    {
+      "type": "textarea",
+      "id": "text_over_img",
+      "label": "Text over image"
+    },
+    {
+      "type": "textarea",
+      "id": "title2",
+      "label": "Title 2"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#7b00e8"
+    },
+    {
+      "type": "color",
+      "id": "second_text_color",
+      "label": "Second Text Color",
+      "default": "#fff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with Image",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

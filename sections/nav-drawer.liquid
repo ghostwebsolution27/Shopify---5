@@ -1,0 +1,280 @@
+<div data-section-id="{{ section.id }}" data-section-type="navdrawer-section" data-navdrawer-section>
+  <div class="" id="NavDrawer">
+    <div class="drawer__container">
+      <div class="drawer__header">
+        {% comment %} Close sidebar menu {% endcomment %}
+        <button type="button" class="js-drawer-close">
+          <span><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 37 40"><path d="M21.3 23l11-11c.8-.8.8-2 0-2.8-.8-.8-2-.8-2.8 0l-11 11-11-11c-.8-.8-2-.8-2.8 0-.8.8-.8 2 0 2.8l11 11-11 11c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11-11 11 11c.4.4.9.6 1.4.6s1-.2 1.4-.6c.8-.8.8-2 0-2.8l-11-11z"></path></svg></span>
+          <span class="menu-text"> Close menu</span>
+        </button>
+        {% comment %} Close sidebar menu {% endcomment %}
+
+        {% comment %} Sidebar Menu Logo {% endcomment %}
+        <div class="h1 site-header__logo  text-active ">
+          {% if section.settings.navdrawer_logo %}
+            {%- assign img_url = section.settings.navdrawer_logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <a href="{{ routes.root_url }}" class="site-header__logo-image">
+              {% capture logo_alt %}{{ section.settings.navdrawer_logo.alt | default: shop.name }}{% endcapture %}
+              <img class="lazyload js navdrawer-logo"
+                   src="{{ section.settings.navdrawer_logo | img_url: '300x300' }}"
+                   data-src="{{ img_url }}"
+                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                   data-aspectratio="{{ section.settings.navdrawer_logo.aspect_ratio }}"
+                   data-sizes="auto"
+                   alt="{{ logo_alt | escape }}">
+              <noscript>
+                {% capture image_size %}{{ section.settings.navdrawer_logo_width | escape }}x{% endcapture %}
+                <img class="navdrawer-logo"
+                     src="{{ section.settings.navdrawer_logo | img_url: image_size }}"
+                     srcset="{{ section.settings.navdrawer_logo | img_url: image_size }} 1x, {{ section.settings.navdrawer_logo | img_url: image_size, scale: 2 }} 2x"
+                     alt="{{ section.settings.navdrawer_logo.alt | default: shop.name }}">
+              </noscript>
+            </a>
+          {% else %}
+            <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
+          {% endif %}
+        </div>
+      </div>
+
+      {% comment %} Sidebar menu list {% endcomment %}
+      {% assign linklist = section.settings.navdrawer_linklist %}
+      <nav class="">
+        <ul class="drawer-nav">
+          {% for link in linklists[linklist].links %}
+            {%- assign child_list_handle = link.title | handleize -%}
+
+            {% comment %}
+              Check if third-level nav exists on each parent link.
+            {% endcomment %}
+            {%- assign three_level_nav = false -%}
+            {% if link.links != blank %}
+              {% if link.levels == 2 %}
+                {%- assign three_level_nav = true -%}
+              {% endif %}
+            {% endif %}
+
+            {% if link.links != blank %}
+              <li class="drawer-nav__item feature-copy{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}" data-has-dropdowns>
+                <div class="drawer-nav__has-sublist">
+                  <a class="drawer-nav__link mobile-nav__toggle">
+                    {{ link.title | escape }}
+                    {% include 'icon-chevron-down' %}
+                  </a>
+                </div>
+
+                {% if three_level_nav %}
+                  <div class="site-nav__childlist">
+                    <ul class="site-nav__childlist-grid">
+                      {% if link.links != blank %}
+                        {% for childlink in link.links %}
+                          <li class="site-nav__childlist-item">
+                            <a href="{{ childlink.url }}"
+                              class="site-nav__link site-nav__child-link site-nav__child-link--parent"
+                              {% if childlink.current %} aria-current="page"{% endif %}
+                            >
+                              <span class="site-nav__label">{{ childlink.title | escape }}</span>
+                            </a>
+
+                            {% if childlink.links != blank %}
+                              <ul>
+                              {% for grandchildlink in childlink.links %}
+                                <li>
+                                  <a href="{{ grandchildlink.url }}"
+                                  class="site-nav__link site-nav__child-link"
+                                  {% if grandchildlink.current %} aria-current="page"{% endif %}
+                                >
+                                    <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
+                                  </a>
+                                </li>
+                              {% endfor %}
+                              </ul>
+                            {% endif %}
+
+                          </li>
+                        {% endfor %}
+                      {% endif %}
+                    </ul>
+                  </div>
+                {% else %}
+                  <ul class="drawer-nav__sublist">
+                    {% for childlink in link.links %}
+                      <li class="drawer-nav__item feature-copy{% if link.active %} drawer-nav__item--active{% endif %}">
+                        <a href="{{ childlink.url }}" class="drawer-nav__link"><span>—</span> {{ childlink.title | escape }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% else %}
+              <li class="drawer-nav__item feature-copy{% if link.active %} drawer-nav__item--active{% endif %}">
+                <a href="{{ link.url }}"
+                  class="drawer-nav__link"
+                  {% if link.current %} aria-current="page"{% endif %}
+                >
+                  <span class="">{{ link.title | escape }}</span>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+          <li class="drawer-nav__item customer-item first">
+            <a href="{{ routes.account_login_url }}" id="customer_login_link">{{ 'layout.customer.log_in' | t }}</a>
+          </li>
+          <li class="drawer-nav__item customer-item">
+            <a href="{{ routes.account_register_url }}" id="customer_register_link">{{ 'layout.customer.create_account' | t }}</a>
+          </li>
+        </ul>
+      </nav>
+      {% comment %} Sidebar menu list {% endcomment %}
+
+      {% comment %} Sidebar search {% endcomment %}
+      <div class="draw-nav__search">
+        <form action="{{ routes.search_url }}" method="get" class="input-group search-bar" role="search">
+          <input
+            type="search"
+            name="q"
+            placeholder="{{ 'general.search.placeholder' | t }}"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-owns="predictive-search-results"
+            aria-expanded="false"
+            aria-label="{{ 'general.search.placeholder' | t }}"
+            aria-haspopup="listbox"
+            class="input-group-field"
+            data-predictive-search-drawer-input
+            data-base-url="{{ routes.search_url }}"
+            />
+          <input type="hidden" name="options[prefix]" value="last" aria-hidden="true" />
+          <span class="input-group-btn">
+            <button type="submit" class="search-btn" data-search-form-submit>
+              {% include 'icon-search' %}
+              <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
+            </button>
+          </span>
+        </form>
+      </div>
+      {% comment %} Sidebar search {% endcomment %}
+
+      <div class="drawer-social">
+        <ul class="social-list ">
+          <li>
+            <a href="{{ settings.social_facebook_link }}" title="" target="_blank">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 32 32"><path d="M18.477 32V17.404h4.9l.733-5.688h-5.633V8.084c0-1.647.458-2.769 2.819-2.769l3.012-.001V.226c-.521-.069-2.309-.224-4.39-.224-4.343 0-7.316 2.651-7.316 7.519v4.195H7.69v5.688h4.912V32h5.875z"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="{{ settings.social_instagram_link }}" title="" target="_blank">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-instagram" viewBox="0 0 32 32"><path d="M23.416.644H8.585C4.038.644.316 4.366.316 8.913v14.178c0 4.547 3.722 8.269 8.269 8.269h14.831c4.547 0 8.269-3.722 8.269-8.269V8.91c0-4.547-3.722-8.266-8.269-8.266zm5.462 22.24c0 3.147-2.575 5.725-5.725 5.725H8.847c-3.147 0-5.725-2.575-5.725-5.725V9.115c0-3.147 2.575-5.725 5.725-5.725h14.306c3.147 0 5.725 2.575 5.725 5.725v13.769z"></path><path d="M15.997 8.116c-4.356 0-7.887 3.531-7.887 7.888s3.531 7.887 7.887 7.887a7.887 7.887 0 1 0 0-15.774zm0 12.975a5.089 5.089 0 1 1 .001-10.175 5.089 5.089 0 0 1-.001 10.174zM26.091 7.691a1.78 1.78 0 1 1-3.561.001 1.78 1.78 0 0 1 3.561-.001z"></path></svg>
+            </a>
+          </li>
+          <li>
+            <a href="{{ settings.social_youtube_link }}" title="" target="_blank">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-youtube" viewBox="0 0 32 32"><path d="M31.681 9.602s-.312-2.205-1.272-3.176c-1.217-1.274-2.581-1.281-3.206-1.356-4.478-.324-11.195-.324-11.195-.324h-.014s-6.717 0-11.195.324c-.625.075-1.989.081-3.206 1.356C.634 7.397.321 9.602.321 9.602s-.32 2.589-.32 5.179v2.428c0 2.589.32 5.179.32 5.179s.312 2.205 1.272 3.176c1.217 1.275 2.816 1.235 3.528 1.368 2.56.246 10.88.321 10.88.321s6.724-.01 11.202-.334c.625-.075 1.989-.081 3.206-1.356.959-.971 1.272-3.176 1.272-3.176S32 19.798 32 17.208V14.78c0-2.589-.319-5.179-.319-5.179zm-11.372 6.652l-.001-.001-7.582 3.928V11.19l8.646 4.511-1.064.552z"></path></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #NavDrawer {
+    color: {{ section.settings.menu_general_color }};
+  }
+  #NavDrawer .navdrawer-logo {
+    max-width: {{ section.settings.navdrawer_logo_width }}px;
+  }
+  #NavDrawer .drawer__header {
+    border-bottom: 1px solid {{ section.settings.menu_general_color }};
+  }
+  #NavDrawer .js-drawer-close {
+    color: {{ section.settings.menu_general_color }};
+  }
+  .drawer-nav__item--active {
+    color: {{ section.settings.menu_active_color }};
+  }
+  .drawer-nav__item a, .drawer-nav__toggle button {
+    color: {{ section.settings.menu_general_color }};
+  }
+  .drawer-nav__item a:hover, .drawer-nav__item a:active, .drawer-nav__item a:focus, .drawer-nav__toggle button:hover, .drawer-nav__toggle button:active, .drawer-nav__toggle button:focus {
+    color: {{ section.settings.menu_hover_color }};
+  }
+  .input-group .input-group-field::placeholder {
+    color: {{ section.settings.menu_general_color }};
+  }
+  .drawer-nav__item.customer-item a {
+    color: {{ section.settings.menu_general_color }};
+  }
+  #NavDrawer .search-bar, .drawer .search-bar .search-btn {
+    color: {{ section.settings.menu_general_color }};
+  }
+  #NavDrawer .search-bar .search-btn {
+    color: {{ section.settings.menu_general_color }};
+  }
+  #NavDrawer .drawer-social .social-list li a {
+    color: {{ section.settings.menu_general_color }};
+  }
+  #NavDrawer .input-group .input-group-field {
+    border-color: {{ section.settings.menu_general_color }};
+    color: {{ section.settings.search_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "NavDrawer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "navdrawer_logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "navdrawer_logo_width",
+      "label": "Logo Width",
+      "min": 50,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "default": 160
+    },
+    {
+      "type": "link_list",
+      "id": "navdrawer_linklist",
+      "label": "Menu"
+    },
+    {
+      "type": "color",
+      "id": "menu_general_color",
+      "label": "Color",
+      "default": "#00c0c5"
+    },
+    {
+      "type": "color",
+      "id": "menu_color",
+      "label": "Menu Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "menu_hover_color",
+      "label": "Menu Hover Color",
+      "default": "#008778"
+    },
+    {
+      "type": "color",
+      "id": "menu_active_color",
+      "label": "Menu Active Color",
+      "default": "#008778"
+    },
+    {
+      "type": "color",
+      "id": "search_color",
+      "label": "Search Text Color",
+      "default": "#000"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+<div id="blp-container" class="blp-container"></div>
+<script>
+  var BOLD = BOLD || {};
+  BOLD.loyalties = BOLD.loyalties || {};
+  BOLD.loyalties.widget = BOLD.loyalties.widget || {};
+  BOLD.loyalties.widget.state = BOLD.loyalties.widget.state || { customer: {shopifyCustomerId:0}, context: {}, cart: {} };
+
+  {% if customer != blank %}
+  BOLD.loyalties.widget.state.customer.shopifyCustomerId = {{ customer.id | json }};
+  BOLD.loyalties.widget.state.customer.name = {{ customer.name | json }};
+  {% endif %}
+
+  {% if product != blank %}
+  BOLD.loyalties.widget.state.context.product = {{ product | json }};
+  {% endif %}
+
+  {% if collection != blank %}
+  BOLD.loyalties.widget.state.context.collection = {};
+  BOLD.loyalties.widget.state.context.collection.id = {{ collection.id | json }};
+  {% endif %}
+
+  {% if cart != blank %}
+  BOLD.loyalties.widget.state.context = BOLD.loyalties.widget.state.context || {};
+  BOLD.loyalties.widget.state.context.cart = {{ cart | json }};
+  {% endif %}
+</script>

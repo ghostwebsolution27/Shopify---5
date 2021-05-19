@@ -1,0 +1,144 @@
+{%- style -%}
+.time-countdown {
+  background-color: {{ section.settings.background_color }};
+}
+.time-countdown .section-title,
+.time-countdown .count-text {
+  color: {{ section.settings.text_color }};
+}
+.count-down .count-day,
+.count-down .count-hour,
+.count-down .count-minute,
+.count-down .count-second {
+  color: {{ section.settings.time_color }};
+}
+{%- endstyle -%}
+
+<div data-section-id="{{ section.id }}" data-section-type="time-countdown-section" class="time-countdown">
+  <div class="page-width time-countdown-wrapper">
+    <h2 class="section-title">
+      {{ section.settings.title }}
+    </h2>
+
+    <div class="count-down">
+      <div class="time-box first-box">
+        <div class="count-day"></div>
+        <span class="count-text">Days</span>
+      </div>
+
+      <div class="time-box">
+        <div class="count-hour"></div>
+        <span class="count-text">Hours</span>
+      </div>
+
+      <div class="time-box">
+        <div class="count-minute"></div>
+        <span class="count-text">Minutes</span>
+      </div>
+
+      <div class="time-box">
+        <div class="count-second"></div>
+        <span class="count-text">Seconds</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var dropDate = String('{{ section.settings.datetime }}');
+  let flag = '{{ section.settings.datetime }}';
+
+  if (flag.trim() == '') {
+    document.querySelector('.count-down .count-day').innerHTML = '00';
+    document.querySelector('.count-down .count-hour').innerHTML = '00';
+    document.querySelector('.count-down .count-minute').innerHTML = '00';
+    document.querySelector('.count-down .count-second').innerHTML = '00';
+  } else {
+    handleDate = dropDate.split('-');
+    var countDownDate = 0;
+    
+    if (handleDate.length == 1) {
+      handleDate = dropDate.split('/');
+      countDownDate = new Date(handleDate[2], handleDate[0] - 1, handleDate[1]).getTime();
+    } else if (handleDate.length == 3) {
+      countDownDate = new Date(handleDate[0], handleDate[1] - 1, handleDate[2]).getTime();
+    }
+    
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (day));
+      var hours = Math.floor((distance % (day)) / (hour));
+      var minutes = Math.floor((distance % (hour)) / (minute));
+      var seconds = Math.floor((distance % (minute)) / second);
+
+      document.querySelector('.count-down .count-day').innerHTML = days;
+      document.querySelector('.count-down .count-hour').innerHTML = hours;
+      document.querySelector('.count-down .count-minute').innerHTML = minutes;
+      document.querySelector('.count-down .count-second').innerHTML = seconds;
+
+      if (distance < 0) {
+        clearInterval(x);
+
+        document.querySelector('.count-down .count-day').innerHTML = '00';
+        document.querySelector('.count-down .count-hour').innerHTML = '00';
+        document.querySelector('.count-down .count-minute').innerHTML = '00';
+        document.querySelector('.count-down .count-second').innerHTML = '00';
+      }
+    }, 1000);
+  }
+</script>
+
+
+{% schema %}
+{
+  "name": "Time Countdown",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "datetime",
+      "label": "Date (yyyy-mm-dd OR mm/dd/yyyy)"
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#dd3333"
+    },
+    {
+      "type": "color",
+      "id": "time_color",
+      "label": "Time Color",
+      "default": "#fff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Time Countdown",
+      "category": "Time"
+    }
+  ]
+}
+{% endschema %}

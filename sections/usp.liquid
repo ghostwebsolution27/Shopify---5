@@ -1,0 +1,97 @@
+{%- style -%}
+.unique-selling {
+  background-color: {{ section.settings.background_color }};
+}
+.unique-selling .proposition .proposition-content {
+  color: {{ section.settings.text_color }};
+}
+{%- endstyle -%}
+
+<div data-section-id="{{ section.id }}" data-section-type="unique-selling-section" class="unique-selling">
+  <div class="unique-selling-wrapper">
+    <div class="proposition-list">
+      {% if section.blocks.size > 0 %}
+        {% for item in section.blocks %}
+          <div class="proposition">
+            <div class="proposition-inner">
+              <div class="proposition-image">
+                {%- if item.settings.image != blank -%}
+                  {%- assign img_url = item.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                  <img class="quick-faq-image lazyload lazypreload"
+                      data-src="{{ img_url }}"
+                      data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                      data-aspectratio="{{ item.settings.image.aspect_ratio }}"
+                      data-sizes="auto"
+                      alt="{{ item.settings.image.alt | escape }}">
+                {%- else -%}
+                  <span>
+                    {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                    {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </span>
+                {%- endif -%}
+                <noscript>
+                  <div class=""{% if item.settings.image %}{% unless item.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ item.settings.image | img_url: '2048x' }}');"{% endif %}></div>
+                </noscript>
+              </div>
+              <div class="proposition-content">
+                <h2 class="proposition-title">{{ item.settings.title }}</h2>
+                <div class="proposition-description">{{ item.settings.description }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "USP",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#fff"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Proposition",
+      "type": "proposition",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "USP",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
